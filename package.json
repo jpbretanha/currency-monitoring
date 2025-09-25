@@ -1,15 +1,24 @@
 {
   "name": "currency-monitor",
-  "version": "1.0.50",
+  "version": "1.0.0",
+  "description": "Monitor USD-BRL exchange rates and get notified when it's a good time to sell USD",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "bun run --watch src/index.ts"
+    "start": "bun run src/index.ts",
+    "dev": "bun run --watch src/index.ts",
+    "build": "bun build src/index.ts --target bun --outdir dist",
+    "monitor": "bun run src/index.ts"
   },
+  "keywords": ["currency", "usd", "brl", "exchange", "monitor", "notifications"],
+  "author": "Currency Monitor",
+  "license": "MIT",
   "dependencies": {
+    "@elysiajs/cron": "^1.4.1",
     "elysia": "latest"
   },
   "devDependencies": {
     "bun-types": "latest"
   },
-  "module": "src/index.js"
+  "engines": {
+    "bun": ">=1.0.0"
+  }
 }
