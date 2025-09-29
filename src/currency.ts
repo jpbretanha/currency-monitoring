@@ -41,7 +41,7 @@ export class CurrencyService {
 
   public async getCurrentRate(): Promise<CurrencyRate> {
     try {
-      console.log('📡 Fetching current USD-BRL rate...');
+      console.log(`📡 [${new Date().toLocaleString()}] Fetching current USD-BRL rate...`);
       
       const response = await this.fetchWithRetry(AWESOME_API_URL);
       const data: AwesomeAPIResponse = await response.json();
@@ -66,7 +66,7 @@ export class CurrencyService {
         throw new Error('Invalid rate data: ask or bid prices are not valid numbers');
       }
 
-      console.log(`📊 Current USD ask rate: ${rate.ask.toFixed(4)} BRL`);
+      console.log(`📊 [${new Date().toLocaleString()}] Current USD ask rate: ${rate.ask.toFixed(4)} BRL`);
       return rate;
 
     } catch (error: unknown) {
